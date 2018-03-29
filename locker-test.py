@@ -30,7 +30,18 @@ class TestUser(unittest.TestCase):
         self.new_account.save_account() #saving the new account
         self.assertEqual(len(User.account_list),1)
 
+    def test_find_account_by_login(self):
+        '''
+        test to check if we can find an account by login name
+        '''
 
+        self.new_account.save_account()
+        test_account = User("lulumuts","VXg@!9")#new accounts
+        test_account.save_account()
+
+        found_account=User.find_account_by_login("VXg@!9")
+
+        self.assertEqual(found_account.login,test_account.login)
 
     def tearDown(self):
         '''

@@ -17,3 +17,19 @@ class User:
         '''
 
         User.account_list.append(self)
+
+    def find_account_by_login(self):
+        '''
+        Method that takes in the password in the form of a number and returns account
+        details
+
+        Args:
+         login: name to search before
+        Returns:
+         Account of person that matches the name.
+        '''
+        for user in cls.account_list:
+            if contact.login == login:
+                return login
+
+    

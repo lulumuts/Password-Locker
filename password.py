@@ -21,6 +21,9 @@ class Password:
         password_length method defines how many characters are permissible for
         '''
 
-        for password in Password.password_length:
-            if Password.password_length > 5:
+        while true:
+            answer=input()
+            if len(answer) < 5:
+                break
+            else
                 print("Please limit your password length to 5 characters")
