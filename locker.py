@@ -10,6 +10,7 @@ class User:
         self.username = username
         self.password = password
 
+
     def save_account(self):
         '''
         save_account method saves the account objects in account_list
