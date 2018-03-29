@@ -31,6 +31,15 @@ class TestPassword(unittest.TestCase):
         self.new_password.save_password()
         self.assertEqual(len(Password.password_list),1)
 
+
+    def test_password_length(self):
+        '''
+        test to see if the password has reached the character limit
+        '''
+        self.new_password.password_length()
+        self.assertTrue(len(Password.password_length),5)
+
+
     def tearDown(self):
         '''
         tearDown method that does clean up after each test case has run.
