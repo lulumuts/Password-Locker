@@ -24,6 +24,12 @@ class TestPassword(unittest.TestCase):
 
         self.assertEqual(self.new_password.random_password,"LMT936!")
 
+    def test_save_password(self):
+        '''
+        test to see if the password has saved.
+        '''
+        self.new_password.save_password()
+        self.assertEqual(len(Password.password_list),1)
 
     def tearDown(self):
         '''
