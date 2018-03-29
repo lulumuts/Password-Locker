@@ -24,12 +24,12 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_account.username,"lulumuts")
         self.assertEqual(self.new_account.password,"VXg@!9")
 
-    def test_account_saved(self):
+    def test_save_account(self):
         '''
         test to see whether you account has been account_saved
         '''
         self.new_account.save_account() #saving the new account
-        self.assertEqual(len(User.account-list),1)
+        self.assertEqual(len(User.account_list),1)
 
 
     def tearDown(self):
