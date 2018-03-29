@@ -16,9 +16,3 @@ class User:
         '''
 
         User.account_list.append(self)
-class Password:
-    """
-    Class that generates new passwords.
-
-    password_list = []
-    """

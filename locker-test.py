@@ -1,6 +1,6 @@
 import unittest #Importing the unittest module
 from locker import User #Importing the class locker
-# from password import Password #Importing the class password
+
 
 class TestUser(unittest.TestCase):
     '''
@@ -16,7 +16,6 @@ class TestUser(unittest.TestCase):
         self.new_account= User("lulumuts","VXg@!9") #create account
 
 
-
     def test_init(self):
         '''
         test_init test cases to test if the object is initialized properly
@@ -30,6 +29,7 @@ class TestUser(unittest.TestCase):
         '''
         self.new_account.save_account() #saving the new account
         self.assertEqual(len(User.account_list),1)
+
 
 
     def tearDown(self):
