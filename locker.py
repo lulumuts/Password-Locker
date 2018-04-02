@@ -8,6 +8,7 @@ class User:
     def __init__(self):
         pass
 
+
         #self.username = usernom
         #self.password = passnom
 
