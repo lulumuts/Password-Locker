@@ -49,82 +49,67 @@ def main():
                     print("-"*10)
 
                     print("Choose your Username")
-                    unx=input()
+                    unx=input().strip(" ")
 
                     print("Type your password")
-                    psx=input()
+                    psx=input().strip(" ")
 
                     #save_account(create_account(username,password))#create and save new contact
                     ob = User()
-                    ob.save_account(unx, psx)
+                    ob.save_account(unx, psx, 1)
 
-                    print("testme",ob.username)
+                    #print("testme",ob.username)
                     print('\n')
                     print(f"New Account created!")
                     print('\n')
+                    print("please log in again to use our service")
+                    short_code = 'yes'
+                    #print("allusers:",ob.get_details())
 
-            elif short_code == 'yes':
+            if short_code == 'yes':
+
                     print("Enter your log in details")
                     print("-"*10)
 
+                    shyes = User()
+                    #shyes.get_details()
                     print("Username")
-                    username=input()
+                    username=input().strip(" ")
 
                     print("Password")
-                    password=input()
+                    password=input().strip(" ")
 
-                    print('\n')
-                    print(f"Hello {username}. Lets get you started.")
-                    print('\n')
+                    paw = shyes.check_exist(username)
+
+                    if paw == password:
+                        print('\n')
+                        print(f"Hello {username}. Lets get you started.")
+                        print('\n')
+                        print("Navigation: new - generate new password, exit-exit the service, view-view existing passwords")
+                        nav_bar=input().lower().strip(" ")
+                        if nav_bar == "new":
+                            print("set your limit for your password")
+                            newpw = shyes.randompw(username)
+                            print("new password", newpw)
+                        elif nav_bar == "exit":
+                            print("Come back soon!")
+                        elif nav_bar == "view":
+                            shyes.returnpw(username)
+                    elif paw == 'nonefound000':
+                        print("user not found")
+                    else:
+                        print("Sorry {username}, that is the wrong password")
+
+
+
+                    #print("allusers_:",ob.get_details())
                     #break
 
     #while True:
-            print("Navigation: new - generate new password, exit-exit the service")
-
-            nav_bar=input().lower()
-
-            if nav_bar == "new":
-                    print("set your limit for your password")
-
-                    mynum = []
-                    inp = int(input("Enter your pw length: "))
-
-                    allstr = 'A1bc23'
-
-                    print("length of allstr = ", len(allstr))
-                    print("range of inp")
-                    print(range(inp))
-                    print("start for loop")
-
-                    for i in range(inp):
-                        print("i", i)
-                        thisnum = int(random.randint(0,len(allstr)))
-                        print("thisnum", thisnum)
-                        mynum.append(thisnum)
-                        print("mynum",mynum)
-
-                    print("end for loop")
-                    print("final mynum object is...", mynum)
-
-
-                    #allstr[mynum]
-                    pasw = ''
-                    print("this is pasw", pasw)
-
-                    for x in mynum:
-                        pasw = str(pasw) + str(allstr[x])
-
-                    print("pasw", pasw)
 
 
 
 
-            elif nav_bar == "exit":
-                    print("Come back soon!")
-                    #break
-
-            else:
-                    print("I really didn't get that. Please use the short codes")
 
 if __name__ == '__main__':
     main()
